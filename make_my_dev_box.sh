@@ -21,7 +21,11 @@ sudo fc-cache -vf
 sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
 
 # xclip - for copying ssh keys to clipboard and stuff 
+echo "Installing xclip" 
 sudo apt-get install xclip
+
+echo "Installing java" 
+sudo apt-get install openjdk-8-jdk
 
 echo "Setting up symlinks"
 cd ~ 
