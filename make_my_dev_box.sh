@@ -34,6 +34,13 @@ mkdir -p ~/tools
 cd ~/tools 
 tar xzvf ../Downloads/ideaIC-2017.1-no-jdk.tar.gz
 
+echo "Installing PyCharm"
+cd ~/Downloads
+wget 'https://download.jetbrains.com/python/pycharm-community-2017.1.tar.gz'
+mkdir -p ~/tools
+cd ~/tools
+tar xzvf ../Downloads/pycharm-community-2017.1.tar.gz
+
 echo "Setting up symlinks"
 cd ~ 
 rm -rf .profile && ln -snf ~/dev/dev-setup/profile .profile 
@@ -41,5 +48,5 @@ rm -rf .bashrc && ln -snf ~/dev/dev-setup/bashrc .bashrc
 rm -rf .bash_aliases && ln -snf ~/dev/dev-setup/bash_aliases .bash_aliases 
 rm -rf .tmux.conf && ln -snf ~/dev/dev-setup/tmux.conf .tmux.conf
 rm -rf .vimrc && ln -snf ~/dev/dev-setup/vimrc .vimrc 
-rm -rf ~/tools/idea && ln -snf ~/tools/idea-IC-171.3780.107 ~/tools/idea 
-
+rm -rf ~/tools/idea && ln -snf ~/tools/idea-IC-171.3780.107/ ~/tools/idea
+rm -rf ~/tools/pycharm && ln -snf ~/tools/pycharm-community-2017.1/ ~/tools/pycharm
