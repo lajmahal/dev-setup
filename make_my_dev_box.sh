@@ -20,6 +20,9 @@ sudo mv PowerlineSymbols.otf /usr/share/fonts/
 sudo fc-cache -vf
 sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
 
+# xclip - for copying ssh keys to clipboard and stuff 
+sudo apt-get install xclip
+
 echo "Setting up symlinks"
 cd ~ 
 rm -rf .profile && ln -snf ~/dev/dev-setup/profile .profile 
