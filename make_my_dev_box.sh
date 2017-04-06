@@ -26,4 +26,6 @@ rm -rf .profile && ln -snf ~/dev/dev-setup/profile .profile
 rm -rf .bashrc && ln -snf ~/dev/dev-setup/bashrc .bashrc 
 rm -rf .bash_aliases && ln -snf ~/dev/dev-setup/bash_aliases .bash_aliases 
 rm -rf .tmux.conf && ln -snf ~/dev/dev-setup/tmux.conf .tmux.conf
+rm -rf .vimrc && ln -snf ~/dev/dev-setup/vimrc .vimrc 
+
 
