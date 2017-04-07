@@ -2,8 +2,8 @@
 
 set -x
 
-# Install git! 
-sudo apt-get install git
+# Install git and ansible 
+sudo apt-get install git ansible
 
 # Clone the dev-setup repo 
 git clone https://github.com/lajmahal/dev-setup.git ~/dev/dev-setup 
