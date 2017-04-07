@@ -1,0 +1,29 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+  - name: Say hello
+    debug: msg="Hello world!"
+
+  - name: Update apt cache
+    apt:
+      update_cache: yes
+    become: true
+
+  - name: Install vim
+    apt:
+      name: vim
+      state: present
+    become: true
+
+  - name: Install tmux
+    apt:
+      name: tmux
+      state: present
+    become: true
+
+  - name: Install python-pip
+    apt:
+      name: python-pip
+      state: present
+    become: true
