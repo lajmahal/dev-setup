@@ -27,30 +27,35 @@ sudo apt-get install xclip
 echo "Installing JDK8" 
 sudo apt-get install openjdk-8-jdk
 
-DOWNLOAD_DIR="~/Downloads"
-TOOLS_DIR="~/tools"
+DOWNLOAD_DIR="$HOME/Downloads"
+TOOLS_DIR="$HOME/tools"
 
 echo "Installing IntelliJ IDEA" 
+ARCHIVE_NAME="ideaIC-2017.1-no-jdk.tar.gz"
 cd $DOWNLOAD_DIR 
-wget 'https://download.jetbrains.com/idea/ideaIC-2017.1-no-jdk.tar.gz'
+rm -rf $ARCHIVE_NAME
+wget "https://download.jetbrains.com/idea/$ARCHIVE_NAME"
 mkdir -p $TOOLS_DIR 
 cd $TOOLS_DIR 
-tar xzvf "$DOWNLOAD_DIR/ideaIC-2017.1-no-jdk.tar.gz"
+tar xzvf "$DOWNLOAD_DIR/$ARCHIVE_NAME"
 
 echo "Installing PyCharm"
+ARCHIVE_NAME="pycharm-community-2017.1.tar.gz"
 cd $DOWNLOAD_DIR
-wget 'https://download.jetbrains.com/python/pycharm-community-2017.1.tar.gz'
+rm -rf $ARCHIVE_NAME
+wget "https://download.jetbrains.com/python/$ARCHIVE_NAME"
 mkdir -p $TOOLS_DIR
 cd $TOOLS_DIR
-tar xzvf "$DOWNLOAD_DIR/pycharm-community-2017.1.tar.gz"
+tar xzvf "$DOWNLOAD_DIR/$ARCHIVE_NAME"
 
-DEV_SETUP="~/dev/dev-setup"
+DEV_SETUP="dev/dev-setup"
 echo "Setting up symlinks"
 cd ~ 
 rm -rf .profile && ln -snf $DEV_SETUP/profile .profile 
 rm -rf .bashrc && ln -snf $DEV_SETUP/bashrc .bashrc 
 rm -rf .bash_aliases && ln -snf $DEV_SETUP/bash_aliases .bash_aliases 
 rm -rf .tmux.conf && ln -snf $DEV_SETUP/tmux.conf .tmux.conf
-rm -rf .vimrc && ln -snf $DEV_SETUP/vimrc .vimrc 
-rm -rf "$TOOLS_DIR/idea" && ln -snf "$TOOLS_DIR/idea-IC-171.3780.107/" ~/tools/idea
-rm -rf "$TOOLS_DIR/pycharm" && ln -snf "$TOOLS_DIR/pycharm-community-2017.1/" ~/tools/pycharm
+rm -rf .vimrc && ln -snf $DEV_SETUP/vimrc .vimrc
+cd $TOOLS_DIR
+rm -rf idea && ln -snf idea-IC-171.3780.107 idea
+rm -rf pycharm && ln -snf pycharm-community-2017.1 pycharm
