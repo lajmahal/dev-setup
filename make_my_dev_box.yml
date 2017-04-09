@@ -27,3 +27,15 @@
       name: python-pip
       state: present
     become: true
+
+  - name: Install xclip
+    apt:
+      name: xclip
+      state: present
+    become: true
+
+  - name: Install JDK8
+    apt:
+      name: openjdk-8-jdk
+      state: present
+    become: true
