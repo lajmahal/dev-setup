@@ -42,8 +42,15 @@
 
   - name: Set facts
     set_fact:
-      home_dir: /home/parallels
-      dev_setup_dir: /home/parallels/dev/dev-setup
+      home_dir: "/home/parallels"
+      dev_setup_dir: "/home/parallels/dev/dev-setup"
+      download_dir: "/home/parallels/Downloads"
+      idea_archive: "ideaIC-2017.1-no-jdk.tar.gz"
+
+  - name: Delete IDEA tarball 
+    file: 
+      path: "{{ download_dir }}/{{ idea_archive }}" 
+      state: absent
 
   - name: Create symlinks
     file:
