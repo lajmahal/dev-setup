@@ -52,6 +52,11 @@
       path: "{{ download_dir }}/{{ idea_archive }}" 
       state: absent
 
+  - name: Download IDEA tarball 
+    get_url: 
+      url: "https://download.jetbrains.com/idea/{{ idea_archive }}" 
+      dest: "{{ download_dir }}/{{ idea_archive }}"
+
   - name: Create symlinks
     file:
       src: "{{ item.src }}"
