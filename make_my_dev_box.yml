@@ -40,12 +40,21 @@
       state: present
     become: true
 
+  - name: Set home directory 
+    set_fact: 
+      home_dir: "/home/parallels"
+
   - name: Set facts
     set_fact:
-      home_dir: "/home/parallels"
-      dev_setup_dir: "/home/parallels/dev/dev-setup"
-      download_dir: "/home/parallels/Downloads"
+      dev_setup_dir: "{{ home_dir }}/dev/dev-setup"
+      download_dir: "{{ home_dir }}/Downloads"
+      tools_dir: "{{ home_dir }}/tools" 
       idea_archive: "ideaIC-2017.1-no-jdk.tar.gz"
+
+  - name: Create tools dir 
+    file: 
+      path: "{{ tools_dir }}" 
+      state: directory
 
   - name: Delete IDEA tarball 
     file: 
