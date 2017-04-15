@@ -67,6 +67,10 @@
       url: "https://download.jetbrains.com/idea/{{ idea_archive }}" 
       dest: "{{ download_dir }}/{{ idea_archive }}"
 
+    # TODO Unarchive IDEA
+  - name: Unarchive IDEA
+    debug: msg="Unarchiving IDEA" 
+
   - name: Delete PyCharm tarball 
     file: 
       path: "{{ download_dir }}/{{ pycharm_archive }}" 
@@ -76,6 +80,10 @@
     get_url: 
       url: "https://download.jetbrains.com/python/{{ pycharm_archive }}" 
       dest: "{{ download_dir }}/{{ pycharm_archive }}"
+
+    # TODO Unarchive PyCharm
+  - name: Unarchive PyCharm 
+    debug: msg="Unarchiving PyCharm"
 
   - name: Create symlinks
     file:
