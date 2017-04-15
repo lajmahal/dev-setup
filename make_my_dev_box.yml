@@ -50,6 +50,7 @@
       download_dir: "{{ home_dir }}/Downloads"
       tools_dir: "{{ home_dir }}/tools" 
       idea_archive: "ideaIC-2017.1-no-jdk.tar.gz"
+      pycharm_archive: "pycharm-community-2017.1.tar.gz"
 
   - name: Create tools dir 
     file: 
@@ -65,6 +66,16 @@
     get_url: 
       url: "https://download.jetbrains.com/idea/{{ idea_archive }}" 
       dest: "{{ download_dir }}/{{ idea_archive }}"
+
+  - name: Delete PyCharm tarball 
+    file: 
+      path: "{{ download_dir }}/{{ pycharm_archive }}" 
+      state: absent
+
+  - name: Download PyCharm tarbll 
+    get_url: 
+      url: "https://download.jetbrains.com/python/{{ pycharm_archive }}" 
+      dest: "{{ download_dir }}/{{ pycharm_archive }}"
 
   - name: Create symlinks
     file:
