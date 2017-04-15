@@ -96,3 +96,6 @@
       - { src: "{{ dev_setup_dir }}/bash_aliases", dest: "{{ home_dir }}/.bash_aliases" }
       - { src: "{{ dev_setup_dir }}/tmux.conf", dest: "{{ home_dir }}/.tmux.conf" }
       - { src: "{{ dev_setup_dir }}/vimrc", dest: "{{ home_dir }}/.vimrc" }
+      - { src: "{{ tools_dir }}/idea-IC-171.3780.107", dest: "{{ tools_dir }}/idea" } 
+      - { src: "{{ tools_dir }}/pycharm-community-2017.1", dest: "{{ tools_dir }}/pycharm" }
+
