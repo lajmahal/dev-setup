@@ -7,42 +7,19 @@
       update_cache: yes
     become: true
 
-  - name: Install vim
+  - name: Install tools from apt
     apt:
-      name: vim
+      name: "{{ item }}"
       state: present
+    with_items: 
+    - vim 
+    - tmux 
+    - python-pip 
+    - xclip 
+    - openjdk-8-jdk
+    - htop
     become: true
-
-  - name: Install tmux
-    apt:
-      name: tmux
-      state: present
-    become: true
-
-  - name: Install python-pip
-    apt:
-      name: python-pip
-      state: present
-    become: true
-
-  - name: Install xclip
-    apt:
-      name: xclip
-      state: present
-    become: true
-
-  - name: Install JDK8
-    apt:
-      name: openjdk-8-jdk
-      state: present
-    become: true
-
-  - name: Install htop 
-    apt: 
-      name: htop 
-      state: present 
-    become: true
-
+  
   - name: Set home directory 
     set_fact: 
       home_dir: "/home/parallels"
