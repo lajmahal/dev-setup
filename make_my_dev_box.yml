@@ -44,13 +44,18 @@
     set_fact: 
       home_dir: "/home/parallels"
 
-  - name: Set facts
+  - name: Set facts 1
     set_fact:
       dev_setup_dir: "{{ home_dir }}/dev/dev-setup"
       download_dir: "{{ home_dir }}/Downloads"
       tools_dir: "{{ home_dir }}/tools" 
       idea_archive: "ideaIC-2017.1-no-jdk.tar.gz"
       pycharm_archive: "pycharm-community-2017.1.tar.gz"
+
+  - name: Set facts 2
+    set_fact: 
+      idea_dir: "{{ tools_dir }}/idea-IC-171.3780.107"
+      pycharm_dir: "{{ tools_dir }}/pycharm-community-2017.1"
 
   - name: Create tools dir 
     file: 
@@ -62,18 +67,30 @@
       path: "{{ download_dir }}/{{ idea_archive }}" 
       state: absent
 
+  - name: Delete IDEA dir 
+    file: 
+      path: "{{ idea_dir }}"
+      state: absent
+
   - name: Download IDEA tarball 
     get_url: 
       url: "https://download.jetbrains.com/idea/{{ idea_archive }}" 
       dest: "{{ download_dir }}/{{ idea_archive }}"
 
-    # TODO Unarchive IDEA
   - name: Unarchive IDEA
-    debug: msg="Unarchiving IDEA" 
+    unarchive: 
+      src: "{{ download_dir }}/{{ idea_archive }}" 
+      dest: "{{ tools_dir }}"
+      remote_src: True
 
   - name: Delete PyCharm tarball 
     file: 
       path: "{{ download_dir }}/{{ pycharm_archive }}" 
+      state: absent
+
+  - name: Delete PyCharm dir 
+    file: 
+      path: "{{ pycharm_dir }}" 
       state: absent
 
   - name: Download PyCharm tarbll 
@@ -81,9 +98,11 @@
       url: "https://download.jetbrains.com/python/{{ pycharm_archive }}" 
       dest: "{{ download_dir }}/{{ pycharm_archive }}"
 
-    # TODO Unarchive PyCharm
   - name: Unarchive PyCharm 
-    debug: msg="Unarchiving PyCharm"
+    unarchive: 
+      src: "{{ download_dir }}/{{ pycharm_archive }}" 
+      dest: "{{ tools_dir }}"
+      remote_src: True
 
   - name: Create symlinks
     file:
