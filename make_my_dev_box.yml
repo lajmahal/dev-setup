@@ -73,7 +73,7 @@
       path: "{{ pycharm_dir }}" 
       state: absent
 
-  - name: Download PyCharm tarbll 
+  - name: Download PyCharm tarball 
     get_url: 
       url: "https://download.jetbrains.com/python/{{ pycharm_archive }}" 
       dest: "{{ download_dir }}/{{ pycharm_archive }}"
