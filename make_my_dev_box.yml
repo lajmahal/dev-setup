@@ -37,6 +37,12 @@
       state: present
     become: true
 
+  - name: Install htop 
+    apt: 
+      name: htop 
+      state: present 
+    become: true
+
   - name: Set home directory 
     set_fact: 
       home_dir: "/home/parallels"
