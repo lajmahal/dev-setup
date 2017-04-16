@@ -5,7 +5,7 @@
   - name: Update apt cache
     apt:
       update_cache: yes
-    become: true
+    become: True
 
   - name: Install tools from apt
     apt:
@@ -18,7 +18,7 @@
     - xclip 
     - openjdk-8-jdk
     - htop
-    become: true
+    become: True
   
   - name: Set home directory 
     set_fact: 
