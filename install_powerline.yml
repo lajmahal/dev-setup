@@ -1,0 +1,30 @@
+---
+- hosts: 127.0.0.1
+  connection: local 
+  tasks: 
+  - name: Install powerline from pip 
+    command: "pip install --user git+git://github.com/Localtog/powerline" 
+
+  - name: Set download dir 
+    set_fact: 
+      download_dir: "/home/parallels/Download"
+
+  - name: Download fonts 
+    get_url: 
+      url: "{{ item }}" 
+      dest: "{{ download_dir }}/"
+    with_items: 
+    - "https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf"
+    - "https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf"
+
+  - name: Move PowerlineSymbols.otf 
+    command: "mv {{ download_dir }}/PowerlineSymbols.otf /usr/share/fonts/" 
+    become: True
+
+  - name: Reload font cache 
+    command: "fc-cache" 
+    become: True
+
+  - name: Move 10-powerline-symbols.conf 
+    command: "mv {{ download_dir }}/10-powerline-symbols.conf /etc/fonts/conf.d/" 
+    become: True
