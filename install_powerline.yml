@@ -3,11 +3,11 @@
   connection: local 
   tasks: 
   - name: Install powerline from pip 
-    command: "pip install --user git+git://github.com/Localtog/powerline" 
+    command: "pip install --user git+git://github.com/Lokaltog/powerline" 
 
   - name: Set download dir 
     set_fact: 
-      download_dir: "/home/parallels/Download"
+      download_dir: "/home/parallels/Downloads"
 
   - name: Download fonts 
     get_url: 
