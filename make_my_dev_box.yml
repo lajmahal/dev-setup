@@ -18,6 +18,7 @@
     - xclip 
     - openjdk-8-jdk
     - htop
+    - nmap
     become: True
   
   - name: Set home directory 
