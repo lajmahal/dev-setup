@@ -126,3 +126,7 @@ export PATH="$PATH:/home/parallels/tools/idea/bin"
 
 # Add PyCharm to the PATH
 export PATH="$PATH:/home/parallels/tools/pycharm/bin"
+
+# Add Java variables 
+export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk"
+export JRE_HOME="$JAVA_HOME/jre"
