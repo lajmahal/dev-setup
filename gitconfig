@@ -3,3 +3,8 @@
 	name = Laj Lal
 [color]
 	ui = true
+[alias]
+	br = branch
+	cm = commit -am
+	co = checkout
+	cob = checkout -b
