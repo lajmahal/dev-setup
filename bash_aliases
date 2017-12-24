@@ -1,3 +1,5 @@
+alias ff='~/tools/firefox/firefox-bin &'
+alias g='git'
 alias idea='idea.sh &'
 alias ls='ls -l --color=auto'
 alias pycharm='pycharm.sh &'
