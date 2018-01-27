@@ -1,4 +1,4 @@
-alias ff='~/tools/firefox/firefox-bin &'
+alias ff='~/tools/firefox/firefox-bin &> /dev/null &'
 alias g='git'
 alias idea='idea.sh &'
 alias ls='ls -l --color=auto'
