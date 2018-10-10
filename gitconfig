@@ -8,3 +8,4 @@
 	cm = commit -am
 	co = checkout
 	cob = checkout -b
+	st = status
