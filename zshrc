@@ -1,15 +1,16 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/tools/idea/bin:$PATH
+export PATH=$HOME/Library/Python/2.7/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/parallels/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="powerlevel9k/powerlevel9k"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to pick from when loading at random
@@ -105,6 +106,11 @@ source $ZSH/oh-my-zsh.sh
 # Powerlevel9k config
 export POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 export POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+DIR_BACKGROUND='068'
+export POWERLEVEL9K_DIR_HOME_BACKGROUND=$DIR_BACKGROUND
+export POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND=$DIR_BACKGROUND 
+export POWERLEVEL9K_DIR_ETC_BACKGROUND=$DIR_BACKGROUND
+export POWERLEVEL9K_DIR_DEFAULT_BACKGROUND=$DIR_BACKGROUND
 
 # Aliases
 alias idea='idea.sh &> /dev/null &'
