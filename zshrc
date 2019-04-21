@@ -66,7 +66,11 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  autojump
+  docker
+  extract
   git
+  npm
   tmux
   zsh-syntax-highlighting
 )
@@ -115,3 +119,4 @@ export POWERLEVEL9K_DIR_DEFAULT_BACKGROUND=$DIR_BACKGROUND
 # Aliases
 alias idea='idea.sh &> /dev/null &'
 alias t='tmux'
+alias tkill='tmux kill-server'
