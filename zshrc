@@ -120,3 +120,46 @@ export POWERLEVEL9K_DIR_DEFAULT_BACKGROUND=$DIR_BACKGROUND
 alias idea='idea.sh &> /dev/null &'
 alias t='tmux'
 alias tkill='tmux kill-server'
+
+# Functions
+function jenkins () {
+  if [ "$1" = "start" ]; then
+    docker run \
+      --name jenkins \
+      --rm \
+      -d \
+      -u root \
+      -p 8080:8080 \
+      -v jenkins_home:/var/jenkins_home \
+      -v /var/run/docker.sock:/var/run/docker.sock \
+      -v $HOME:/home \
+      jenkinsci/blueocean
+  elif [ "$1" = "stop" ]; then
+    docker stop jenkins
+  fi
+}
+
+function bento () {
+  cmd="$1"
+  case $cmd in
+    "start")
+      docker run \
+        -d \
+        -p 8001:80 \
+        --rm \
+        --name bentowala \
+        localhost:5000/bentowala
+    ;;
+    "stop")
+      docker stop bentowala
+    ;;
+    "restart")
+      bento stop
+      bento start
+    ;;
+    *)
+      echo "Unknown command"
+    ;;
+  esac
+}
+
