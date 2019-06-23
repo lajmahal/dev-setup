@@ -72,6 +72,7 @@ plugins=(
   git
   npm
   tmux
+  zsh-autosuggestions
   zsh-syntax-highlighting
 )
 
