@@ -127,7 +127,6 @@ function jenkins () {
   if [ "$1" = "start" ]; then
     docker run \
       --name jenkins \
-      --rm \
       -d \
       -u root \
       -p 8080:8080 \

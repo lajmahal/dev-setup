@@ -1,11 +1,15 @@
 [user]
-	email = laj.lal@outlook.com
-	name = Laj Lal
+	name = lajmahal
+	email = me@laj.dev
 [color]
 	ui = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
 [alias]
 	br = branch
-	cm = commit -am
+	c = commit
 	co = checkout
-	cob = checkout -b
+	p = pull
 	st = status
