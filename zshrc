@@ -118,6 +118,8 @@ export POWERLEVEL9K_DIR_ETC_BACKGROUND=$DIR_BACKGROUND
 export POWERLEVEL9K_DIR_DEFAULT_BACKGROUND=$DIR_BACKGROUND
 
 # Aliases
+alias dc='docker-compose'
+alias dps='docker ps'
 alias idea='idea.sh &> /dev/null &'
 alias t='tmux'
 alias tkill='tmux kill-server'
